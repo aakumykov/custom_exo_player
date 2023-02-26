@@ -143,6 +143,12 @@ public class CustomExoPlayer extends Binder implements SoundPlayer {
         return mError;
     }
 
+    @Override
+    public void setError(@NonNull Throwable throwable) {
+        mError = throwable;
+        publishPlayerState(PlayerState.ERROR);
+    }
+
     @Nullable @Override
     public SoundItem getCurrentItem() {
         return mCurrentItem;
